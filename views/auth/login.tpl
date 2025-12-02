@@ -1,4 +1,5 @@
-% rebase('layout.tpl', title=title)
+% rebase('layout.tpl', title=title, session=session)
+
 
 <div style="max-width: 450px; margin: 50px auto; padding: 25px; background: #fff; border-radius: 8px; box-shadow: 0 0 10px #ddd;">
 

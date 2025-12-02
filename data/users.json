@@ -1,9 +1,16 @@
 [
     {
         "id": 1,
-        "nome": "daniel felipe",
+        "nome": "Daniel",
+        "email": "daniel@email.com",
+        "birthdate": "2006-02-08",
+        "papel": "admin"
+    },
+    {
+        "id": 2,
+        "nome": "Daniel Felipe Figueiredo ",
         "email": "dan.felipecf@gmail.com",
-        "senha": "123456",
-        "papel": "comum"
+        "birthdate": "2006-02-08",
+        "papel": "commum"
     }
 ]
