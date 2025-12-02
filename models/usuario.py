@@ -4,7 +4,11 @@ class Usuario:
         self.nome = nome
         self.email = email
         self.senha = senha
-        self.papel = papel   # comum ou admin
+        self.papel = papel  # 'comum' ou 'admin'
+
+    def eh_admin(self):
+        """Verifica se o utilizador é administrador."""
+        return self.papel == "admin"
 
     def to_dict(self):
         return {
@@ -12,7 +16,7 @@ class Usuario:
             "nome": self.nome,
             "email": self.email,
             "senha": self.senha,
-            "papel": self.papel
+            "papel": self.papel,
         }
 
 
