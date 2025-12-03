@@ -1,4 +1,4 @@
-% rebase('layout.tpl', title='Usuários')
+% rebase('layout.tpl', title='Usuários', session=session)
 
 <section class="users-section">
 

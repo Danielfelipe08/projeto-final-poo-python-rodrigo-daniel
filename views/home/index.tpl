@@ -1,4 +1,5 @@
-% rebase('layout.tpl', title=title)
+% rebase('layout.tpl', title=title, session=session)
+
 
 <div style="padding: 30px;">
     <h2>Bem-vindo ao Sistema!</h2>

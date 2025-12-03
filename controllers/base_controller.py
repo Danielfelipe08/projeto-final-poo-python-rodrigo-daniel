@@ -1,5 +1,4 @@
-from bottle import static_file, request
-from bottle import template as render_template
+from bottle import static_file, request, template as render_template
 
 class BaseController:
     def __init__(self, app):
@@ -13,17 +12,15 @@ class BaseController:
     def get_session(self):
         return request.environ.get("beaker.session")
 
-   
     def render(self, view_name, **context):
         session = self.get_session()
 
-        # O Bottle exige que a variável 'base' exista ao usar rebase()
-        # (e não 'content')
+        context['session'] = session
+
         if "base" not in context:
             context["base"] = ""
 
-        # Envia session para layout.tpl
-        return render_template(view_name, session=session, **context)
+        return render_template(view_name, **context)
 
     # STATIC FILE
     def serve_static(self, filename):

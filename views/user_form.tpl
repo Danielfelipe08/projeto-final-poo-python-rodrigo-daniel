@@ -1,4 +1,6 @@
-% rebase('layout.tpl', title=title)
+% rebase('layout.tpl', title='Formulário Usuário', session=session)
+
+
 
 <section class="form-section">
     <h1>{{ 'Editar Usuário' if user else 'Adicionar Usuário' }}</h1>

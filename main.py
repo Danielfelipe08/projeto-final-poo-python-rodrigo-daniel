@@ -10,7 +10,6 @@ session_opts = {
 
 if __name__ == "__main__":
     app = create_app()
-
     app.setup_routes()
 
     wsgi_app = SessionMiddleware(app.bottle, session_opts)
