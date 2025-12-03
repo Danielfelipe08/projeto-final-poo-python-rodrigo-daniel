@@ -1,105 +1,261 @@
-# Projeto Template: POO com Python + Bottle + JSON
 
-Este é um projeto de template educacional voltado para o ensino de **Programação Orientada a Objetos (POO)** do Prof. Lucas Boaventura, Universidade de Brasília (UnB).
 
-Utiliza o microframework **Bottle**. Ideal para uso em disciplinas introdutórias de Engenharia de Software ou Ciência da Computação.
+# 📚 Sistema de Biblioteca – Projeto Final de Orientação a Objetos (2025.2)
 
-## 💡 Objetivo
-
-Fornecer uma base simples, extensível e didática para construção de aplicações web orientadas a objetos com aplicações WEB em Python, ideal para trabalhos finais ou exercícios práticos.
+Aplicação Web desenvolvida em **Python + Bottle**, seguindo o padrão **MVC** e aplicando os **4 pilares da Orientação a Objetos**.
+O sistema permite gerenciar **usuários, livros e empréstimos**, com persistência em arquivos JSON e autenticação de acesso.
 
 ---
 
-## 🗂 Estrutura de Pastas
+## ✔️ **Funcionalidades Principais**
 
-```bash
-poo-python-bottle-template/
-├── app.py # Ponto de entrada do sistema
-├── config.py # Configurações e caminhos do projeto
-├── main.py # Inicialização da aplicação
-├── requirements.txt # Dependências do projeto
-├── README.md # Este arquivo
-├── controllers/ # Controladores e rotas
-├── models/ # Definição das entidades (ex: User)
-├── services/ # Lógica de persistência (JSON)
-├── views/ # Arquivos HTML (Bottle Templating)
-├── static/ # CSS, JS e imagens
-├── data/ # Arquivos JSON de dados
-└── .vscode/ # Configurações opcionais do VS Code
+### 🔐 **Autenticação**
+
+* Cadastro de usuário
+* Login por e-mail e data de nascimento
+* Sessão com Beaker
+* Proteção de rotas (somente usuários autenticados acessam livros/emprestimos)
+
+### 📘 **Gestão de Livros**
+
+* Listar livros
+* Adicionar novo livro
+
+### 📄 **Gestão de Empréstimos**
+
+* Registrar novo empréstimo
+* Selecionar usuário e livro
+* Listar empréstimos
+
+### 👤 **Gestão de Usuários**
+
+* Listar usuários
+* Criar usuário
+* Editar usuário
+* Excluir usuário
+
+### 🎨 **Interface Web**
+
+* Layout customizado
+* Páginas estilizadas com CSS moderno
+* Layout responsivo
+* Cartões de login/cadastro
+
+---
+
+# 🧱 **Estrutura do Projeto (MVC)**
+
+```
+projeto-final-poo-python-rodrigo-daniel/
+│
+├── app.py
+├── main.py
+├── config.py
+├── Makefile
+├── requirements.txt
+├── README.md
+│
+├── controllers/
+│   ├── __init__.py
+│   ├── auth_controller.py
+│   ├── base_controller.py
+│   ├── emprestimos_controller.py
+│   ├── home_controller.py
+│   ├── livros_controller.py
+│   ├── login_controller.py
+│   └── user_controller.py
+│
+├── models/
+│   ├── __init__.py
+│   ├── emprestimo.py
+│   ├── livro.py
+│   ├── user.py
+│   └── usuario_model.py
+│
+├── services/
+│   ├── __init__.py
+│   ├── emprestimo_service.py
+│   ├── livro_service.py
+│   ├── user_service.py
+│   └── usuario_service.py
+│
+├── utils/
+│   ├── __init__.py
+│   └── auth_middleware.py
+│
+├── data/
+│   ├── emprestimos.json
+│   ├── livros.json
+│   └── users.json
+│
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   ├── img/
+│   └── js/
+│
+└── views/
+    ├── auth/
+    │   ├── login.tpl
+    │   └── register.tpl
+    │
+    ├── emprestimos/
+    │   └── index.tpl
+    │
+    ├── home/
+    │   └── index.tpl
+    │
+    ├── livros/
+    │   └── index.tpl
+    │
+    ├── partials/
+    │   ├── base.tpl
+    │   ├── helper-final.tpl
+    │   ├── layout.tpl
+    │   ├── user_form.tpl
+    │   └── users.tpl
+
 ```
 
+---
+
+# 🧠 **Pilares da Orientação a Objetos Aplicados**
+
+## ✔️ **1. Abstração**
+
+As classes **Livro**, **Emprestimo**, **User**, **Usuario**, **Admin**, **Leitor** abstraem conceitos do domínio real.
 
 ---
 
-## 📁 Descrição das Pastas
+## ✔️ **2. Encapsulamento**
 
-### `controllers/`
-Contém as classes responsáveis por lidar com as rotas da aplicação. Exemplos:
-- `user_controller.py`: rotas para listagem, adição, edição e remoção de usuários.
-- `base_controller.py`: classe base com utilitários comuns.
+A classe `Usuario` protege a senha:
 
-### `models/`
-Define as classes que representam os dados da aplicação. Exemplo:
-- `user.py`: classe `User`, com atributos como `id`, `name`, `email`, etc.
-
-### `services/`
-Responsável por salvar, carregar e manipular dados usando arquivos JSON. Exemplo:
-- `user_service.py`: contém métodos como `get_all`, `add_user`, `delete_user`.
-
-### `views/`
-Contém os arquivos `.tpl` utilizados pelo Bottle como páginas HTML:
-- `layout.tpl`: estrutura base com navegação e bloco `content`.
-- `users.tpl`: lista os usuários.
-- `user_form.tpl`: formulário para adicionar/editar usuário.
-
-### `static/`
-Arquivos estáticos como:
-- `css/style.css`: estilos básicos.
-- `js/main.js`: scripts JS opcionais.
-- `img/BottleLogo.png`: exemplo de imagem.
-
-### `data/`
-Armazena os arquivos `.json` que simulam o banco de dados:
-- `users.json`: onde os dados dos usuários são persistidos.
+```python
+self.__senha
+def verificar_senha()
+```
 
 ---
 
-## ▶️ Como Executar
+## ✔️ **3. Herança**
 
-1. Crie o ambiente virtual na pasta fora do seu projeto:
-```bash
+```python
+class Admin(Usuario)
+class Leitor(Usuario)
+```
+
+---
+
+## ✔️ **4. Polimorfismo**
+
+Método sobrescrito:
+
+```python
+def tem_permissao_admin()
+```
+
+Cada tipo de usuário retorna comportamentos diferentes.
+
+---
+
+# 🗂️ **Persistência de Dados**
+
+O projeto usa **JSON** como forma de persistência:
+
+* `users.json`
+* `livros.json`
+* `emprestimos.json`
+
+Os *services* fazem leitura/escrita encapsulada:
+
+```python
+def _load()
+def _save()
+```
+
+---
+
+# 🚀 **Como Executar o Projeto**
+
+## 1️⃣ Criar ambiente virtual
+
+```sh
 python -m venv venv
-source venv/bin/activate  # Linux/Mac
-venv\\Scripts\\activate     # Windows
 ```
 
-2. Entre dentro do seu projeto criado a partir do template e instale as dependências:
-```bash
+## 2️⃣ Ativar ambiente virtual
+
+### Windows:
+
+```sh
+venv\Scripts\activate
+```
+
+### Mac/Linux:
+
+```sh
+source venv/bin/activate
+```
+
+## 3️⃣ Instalar dependências
+
+```sh
 pip install -r requirements.txt
 ```
 
-3. Rode a aplicação:
-```bash
-python main.py
+## 4️⃣ Executar o servidor
+
+```sh
+python run.py
 ```
 
-4. Accese sua aplicação no navegador em: [http://localhost:8080](http://localhost:8080)
+O sistema abrirá em:
+
+👉 [http://localhost:8080](http://localhost:8080)
 
 ---
 
-## ✍️ Personalização
-Para adicionar novos modelos (ex: Atividades):
+# 📦 **requirements.txt**
 
-1. Crie a classe no diretório **models/**.
+Use este arquivo:
 
-2. Crie o service correspondente para manipulação do JSON.
+```
+bottle
+beaker
+```
 
-3. Crie o controller com as rotas.
 
-4. Crie as views .tpl associadas.
+
+
+
+# 🧩 **Diagrama de Classes (Descrição)**
+
+```
+Usuario (abstract)
+ ├── Admin
+ └── Leitor
+
+Livro
+Emprestimo
+
+UsuarioService
+LivroService
+EmprestimoService
+```
+
 
 ---
 
-## 🧠 Autor e Licença
-Projeto desenvolvido como template didático para disciplinas de Programação Orientada a Objetos, baseado no [BMVC](https://github.com/hgmachine/bmvc_start_from_this).
-Você pode reutilizar, modificar e compartilhar livremente.
+# 👥 **Autores**
+
+| Nome         | GitHub                    |
+| ------------ | ------------------------- |
+| **Rodrigo Barbosa**  | github.com/RodrigoCBarbosa |
+| **Daniel Felipe** | github.com/Danielfelipe08 |
+
+
+
+
+
+

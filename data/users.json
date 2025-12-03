@@ -47,5 +47,12 @@
         "email": "carvalhorodrigobarbosa@gmai.com",
         "birthdate": "2005-10-16",
         "papel": "commum"
+    },
+    {
+        "id": 8,
+        "nome": "Daniel Felipe Figueiredo ",
+        "email": "dan.felipecf@gmail.com",
+        "birthdate": "2006-02-08",
+        "papel": "commum"
     }
 ]

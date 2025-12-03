@@ -1,1 +1,14 @@
-[]
+[
+    {
+        "id": 1,
+        "titulo": "O Pequeno Pr\u00c3\u00adncipe",
+        "autor": "Antoine de Saint-exup\u00c3\u00a9ry",
+        "ano": "1943"
+    },
+    {
+        "id": 2,
+        "titulo": "Programa\u00c3\u00a7\u00c3\u00a3o Orientada \u00c3\u00a0 Objetos em Python: Do B\u00c3\u00a1sico ao Avan\u00c3\u00a7ado",
+        "autor": "Fernando Feltrin ",
+        "ano": "2022"
+    }
+]
