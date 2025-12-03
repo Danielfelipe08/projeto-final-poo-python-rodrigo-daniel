@@ -4,6 +4,12 @@ class UsuarioService:
     def __init__(self):
         self.model = UserModel()
 
+    # LISTAR TODOS OS USUÁRIOS
+    def listar(self):
+        """Retorna lista completa de usuários"""
+        return self.model.get_all()
+
+    # CRIAR USUÁRIO
     def criar_usuario(self, name, email, birthdate):
         users = self.model.get_all()
 
@@ -11,7 +17,7 @@ class UsuarioService:
 
         novo_usuario = User(
             id=new_id,
-            name=name,
+            nome=name,
             email=email,
             birthdate=birthdate
         )
@@ -19,6 +25,7 @@ class UsuarioService:
         self.model.add_user(novo_usuario)
         return novo_usuario
 
+    # AUTENTICAÇÃO
     def autenticar(self, email, birthdate):
         users = self.model.get_all()
 

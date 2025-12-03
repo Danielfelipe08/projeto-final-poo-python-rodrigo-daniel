@@ -16,3 +16,11 @@ class Config:
 
     # Outras configurações
     SECRET_KEY = 'sua-chave-secreta-aqui'
+
+    # 🚀 CONFIGURAÇÃO DE SESSÃO — ESSENCIAL PARA LOGIN FUNCIONAR
+    SESSION_OPTS = {
+        'session.type': 'file',
+        'session.cookie_expires': 3600,
+        'session.data_dir': os.path.join(BASE_DIR, 'data', 'sessions'),
+        'session.auto': True
+    }
