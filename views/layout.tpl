@@ -1,4 +1,5 @@
-% rebase('base', title=title, session=session)
+% rebase('base', title=title)
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
