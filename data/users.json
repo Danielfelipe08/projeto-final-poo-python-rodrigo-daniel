@@ -40,5 +40,12 @@
         "email": "dan.felipecf@gmail.com",
         "birthdate": "2006-02-08",
         "papel": "commum"
+    },
+    {
+        "id": 7,
+        "nome": "Rodrigo Carvalho Barbosa",
+        "email": "carvalhorodrigobarbosa@gmai.com",
+        "birthdate": "2005-10-16",
+        "papel": "commum"
     }
 ]
